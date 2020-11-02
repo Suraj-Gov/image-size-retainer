@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resize image to 16:9</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      /* the container */
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    div {
+      display: block;
+      width: 100vw;
+      height: 50rem;
+      /* roughly 16x9 */
+      filter: saturate(180%) blur(3px);
+      background-image: url("./img.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    img {
+      filter: none;
+      position: absolute;
+      top: 0;
+      height: 50rem;
+      /* the height of sibling div and this should be equal */
+    }
+
+    @media only screen and (max-width: 800px) {
+      div {
+        height: auto;
+      }
+
+      img {
+        height: auto;
+        width: 100vw;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <div></div>
+      <img src="img.jpg" />
+    </header>
+  </body>
+  <script src="./index.js" defer></script>
+</html>
